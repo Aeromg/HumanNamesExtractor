@@ -1,0 +1,152 @@
+﻿<Page
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  xmlns:viewModels="clr-namespace:IndexerWpf.ViewModels"
+	  xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+	  xmlns:ViewModels="clr-namespace:IndexerWpf.ViewModels" x:Class="IndexerWpf.Views.KnownPersonEditorPage" 
+	  mc:Ignorable="d" 
+	  d:DesignHeight="400" d:DesignWidth="600"
+	Title="KnownPersonEditorPage">
+
+	<Grid Background="White">
+		<StackPanel Margin="15">
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+				<Button Style="{DynamicResource MetroCircleButtonStyle}" Height="36" Width="36" Margin="0,5,5,0"
+						Command="{Binding GoBack}">
+					<Rectangle Width="18" Height="18">
+						<Rectangle.Fill>
+							<VisualBrush Visual="{DynamicResource appbar_arrow_left}" />
+						</Rectangle.Fill>
+					</Rectangle>
+				</Button>
+				<Label FontSize="36" Content="{Binding NominativeFullName}" Padding="0,0,0,0" Foreground="#FF60B2E0"/>
+			</StackPanel>
+            <TextBlock Foreground="#666" FontWeight="Light" Margin="5,0,5,15" TextWrapping="Wrap" Visibility="{Binding IsAutoInflectedVisibility, FallbackValue=Collapsed}">
+				Вы видите то, как будет изменяться имя человека в различных падежах. Эти варианты написания получены автоматически,
+                и, обычно, верны.
+            </TextBlock>
+            <TextBlock Foreground="#AA0000" FontWeight="Light" Margin="5,0,5,10" TextWrapping="Wrap" Visibility="{Binding IsBadNameVisibility, FallbackValue=Collapsed}">
+				Крайне необычное имя для человека. Убедитесь в том, что оно написано без ошибок.
+                В случае ошибки вернитесь назад и введите имя правильно.
+            </TextBlock>
+            <TextBlock Foreground="#666" FontWeight="Light" Margin="5,0,5,0" TextWrapping="Wrap">
+                Проверьте правильность написания имени в различных падежах.
+			</TextBlock>
+			<StackPanel Margin="0,10">
+				<Grid Margin="0,5" >
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="55"/>
+						<ColumnDefinition Width="10*"/>
+						<ColumnDefinition Width="13*"/>
+					</Grid.ColumnDefinitions>
+					<Label Content="Кто?" Grid.Column="0"/>
+					<TextBox 
+						Margin="0,0,10,0"
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Имя" 
+						Grid.Column="1" 
+						Text="{Binding NominativeName}" />
+					<TextBox 
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Фамилия" 
+						Grid.Column="2" 
+						Text="{Binding NominativeSurname}" />
+				</Grid>
+
+				<Grid Margin="0,5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="55"/>
+						<ColumnDefinition Width="10*"/>
+						<ColumnDefinition Width="13*"/>
+					</Grid.ColumnDefinitions>
+					<Label Content="Кого?" Grid.Column="0"/>
+					<TextBox 
+						Margin="0,0,10,0"
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Имя" 
+						Grid.Column="1" 
+						Text="{Binding GenitiveName}" />
+					<TextBox 
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Фамилия" 
+						Grid.Column="2" 
+						Text="{Binding GenitiveSurname}" />
+				</Grid>
+
+				<Grid Margin="0,5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="55"/>
+						<ColumnDefinition Width="10*"/>
+						<ColumnDefinition Width="13*"/>
+					</Grid.ColumnDefinitions>
+					<Label Content="Кому?" Grid.Column="0"/>
+					<TextBox 
+						Margin="0,0,10,0"
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Имя" 
+						Grid.Column="1" 
+						Text="{Binding DativeName}" />
+					<TextBox 
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Фамилия" 
+						Grid.Column="2"
+						Text="{Binding DativeSurname}" />
+				</Grid>
+
+				<Grid Margin="0,5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="55"/>
+						<ColumnDefinition Width="10*"/>
+						<ColumnDefinition Width="13*"/>
+					</Grid.ColumnDefinitions>
+					<Label Content="Кем?" Grid.Column="0"/>
+					<TextBox 
+						Margin="0,0,10,0"
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Имя" 
+						Grid.Column="1" 
+						Text="{Binding InstrumentalName}" />
+					<TextBox 
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Фамилия" 
+						Grid.Column="2" 
+						Text="{Binding InstrumentalSurname}" />
+				</Grid>
+
+				<Grid Margin="0,5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="55"/>
+						<ColumnDefinition Width="10*"/>
+						<ColumnDefinition Width="13*"/>
+					</Grid.ColumnDefinitions>
+					<Label Content="О ком?" Grid.Column="0"/>
+					<TextBox 
+						Margin="0,0,10,0"
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Имя" 
+						Grid.Column="1" 
+						Text="{Binding PrepositionalName}" />
+					<TextBox 
+						controls:TextboxHelper.ClearTextButton="True" 
+						controls:TextboxHelper.Watermark="Фамилия" 
+						Grid.Column="2" 
+						Text="{Binding PrepositionalSurname}" />
+				</Grid>
+
+                <Grid Margin="0,20,0,0" Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="Удалить" Grid.Column="1" Command="{Binding Remove}" Margin="0,0,5,0"
+                        Visibility="{Binding RemoveVisibility}"/>
+                    <Button Content="Готово" Grid.Column="2" Command="{Binding Ok}" Margin="5,0,0,0"/>
+                </Grid>
+            </StackPanel>
+		</StackPanel>
+	</Grid>
+</Page>

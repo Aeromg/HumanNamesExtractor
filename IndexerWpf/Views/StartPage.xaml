@@ -1,0 +1,49 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ViewModels="clr-namespace:IndexerWpf.ViewModels" x:Class="IndexerWpf.Views.StartPage" 
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="600"
+	  Title="StartPage">
+
+    <Page.DataContext>
+        <ViewModels:StartViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Label FontSize="36" Content="НАЧАЛО РАБОТЫ" Padding="10,0,0,0" Foreground="#FF60B2E0"
+               Grid.Row="0"/>
+        
+        <TextBlock Grid.Row="1" Foreground="#666" Margin="12,10" TextWrapping="Wrap">
+            Выберите документ, чтобы найти имена упомянутых в нем людей или перейдите в настройки.
+            
+        </TextBlock>
+        
+        
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" 
+                    Content="выбрать файл и начать" Command="{Binding SelectFile}"
+                    Margin="10" />
+            
+            <Button Grid.Column="1"
+                    Content="перейти в настройки" Command="{Binding Configure}" 
+                    Margin="10" />
+        </Grid>
+
+    </Grid>
+</Page>

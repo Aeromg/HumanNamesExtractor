@@ -1,0 +1,28 @@
+﻿<Page x:Class="IndexerWpf.Views.ProgressPage"
+      	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls" 
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="600"
+	Title="ProgressPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Label FontSize="36" Content="ЖДИТЕ" 
+               Padding="15,0,0,0" Foreground="#FF60B2E0"
+               Grid.Row="0"/>
+        <TextBlock Foreground="#666" Padding="15,10" Grid.Row="1" TextWrapping="Wrap">
+            Идет поиск имен в вашем документе.<LineBreak />
+            В зависимости от сложности и размера документа эта операция может
+            занять от секунд до года. Не расстраивайтесь:
+            вам, возможно, придется ответить на несколько уточняющих вопросов и повторить поиск.
+        </TextBlock>
+        <controls:ProgressRing IsActive="True" Grid.Row="2" Width="30" Height="30" VerticalAlignment="Center" />
+    </Grid>
+</Page>

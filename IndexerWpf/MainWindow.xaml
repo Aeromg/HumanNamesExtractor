@@ -1,0 +1,45 @@
+﻿<Window
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  xmlns:viewModels="clr-namespace:IndexerWpf.ViewModels"
+	  xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:ViewModels="clr-namespace:IndexerWpf.ViewModels" x:Class="IndexerWpf.MainWindow"
+        Title="Индексатор" Height="500" Width="600">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFF7F7F7" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.DataContext>
+        <ViewModels:StartViewModel/>
+    </Window.DataContext>
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Label Content="{Binding ReleaseInfo, FallbackValue='версия поделия'}" 
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,5" Background="{x:Null}" 
+               Foreground="#4C000000" Grid.Row="1"/>
+        
+        <controls:MetroProgressBar Name="ProgressBar" Grid.Row="0" IsIndeterminate="True" Visibility="Collapsed" Width="auto" />
+        
+        <Frame x:Name="Frame" NavigationUIVisibility="Hidden"
+               Margin="15,6,15,10" 
+               Grid.Row="1" />
+        
+        <Frame x:Name="ModalFrame" NavigationUIVisibility="Hidden"
+               Margin="0,36,0,40" BorderBrush="#FFCDCDCD" 
+               BorderThickness="0,1" Foreground="{x:Null}" Background="White" 
+               Grid.Row="1" >
+            <Frame.Effect>
+                <DropShadowEffect BlurRadius="50" RenderingBias="Quality" Direction="0" Opacity="0.3"/>
+            </Frame.Effect>
+        </Frame>
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+﻿<Page x:Class="IndexerWpf.Views.ErrorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="600"
+	Title="ErrorPage">
+
+    <Grid Background="#FFA62626">
+        <StackPanel Margin="15,0">
+            <Label FontSize="36" Content="Я СЛОМАЛОСЬ :(" Padding="0,0,0,15" Foreground="White"/>
+            <TextBlock Foreground="White" FontWeight="Light" Margin="0,0,0,10" TextWrapping="Wrap">
+                Что-то пошло не так, и мне пришлось показать этот экран.<LineBreak />
+                Информация ниже будет полезна разработчику.
+            </TextBlock>
+            <TextBlock Foreground="White" FontWeight="Light" Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding StackString}" />
+        </StackPanel>
+    </Grid>
+</Page>
